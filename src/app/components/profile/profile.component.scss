@@ -1,0 +1,44 @@
+@import '~src/scss/base';
+
+:host {
+    text-align: center;
+
+    @include mq-min-max($sm, $md) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.profile-image {
+    margin: 0 auto 24px;
+    max-width: 230px;
+
+    @include mq-min-max($sm, $md) {
+        margin: 0;
+    }
+    @include mq-min($md) {
+        max-width: none;
+    }
+
+    img {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.profile-info {
+    @include mq-min-max($sm, $md) {
+        margin: 24px 0 0 64px;
+    }
+    dl {
+        margin: 0;
+    }
+    dt {
+        margin: 0;
+        font-size: 14px;
+    }
+    dd {
+        font-weight: 700;
+        margin: 0 0 24px;
+    }
+}

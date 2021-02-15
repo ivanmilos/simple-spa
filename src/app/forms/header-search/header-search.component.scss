@@ -1,0 +1,63 @@
+@import '~src/scss/base';
+
+.search-form {
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: 232px;
+    height: 48px;
+
+    input {
+        padding: 0 6px 0 20px;
+        margin: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 14px;
+        line-height: normal;
+        flex: 1;
+        height: 46px;
+    }
+    ::ng-deep .button.button-blank {
+        padding: 12px 17px;
+        border-radius: $app-border-radius;
+        transition: none;
+
+        svg {
+            position: relative;
+            left: -2px;
+        }
+
+        &:hover {
+            background: $primary-dark;
+            color: $primary-light;
+        }
+    }
+}
+.search-wrapper {
+    position: relative;
+    height: 48px;
+    width: 58px;
+    transition: width $app-transition;
+    text-align: right;
+    border-radius: $app-border-radius;
+    overflow: hidden;
+
+    &.search-wrapper-expanded {
+        width: 232px;
+        box-shadow: inset 0 0 0 1px #ccc;
+    }
+}
+.search-expand-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .search-wrapper-expanded & {
+        z-index: -1;
+        opacity: 0;
+    }
+    ::ng-deep .button {
+        transition: none;
+    }
+}

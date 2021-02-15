@@ -1,0 +1,203 @@
+@import '~src/scss/base';
+
+.button {
+    &input[type='button']::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+    &button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+
+    position: relative;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid currentColor;
+    border-radius: $app-border-radius;
+    padding: 11px 18px;
+    color: $primary-dark;
+    background: none;
+    user-select: none;
+    transition: all $app-transition;
+    text-decoration: none;
+
+    &,
+    &:active,
+    &.active,
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:disabled {
+        cursor: default;
+    }
+    &.disabled {
+        opacity: 0.7;
+        background: $tinted-grey;
+        border-color: $tinted-grey;
+        color: #fff;
+    }
+
+    &,
+    .button-inner,
+    .button-inner span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ::ng-deep svg {
+        margin-left: 7px;
+    }
+
+    // MINI INLINE LOADER
+    .button-inner.mini-loader {
+        position: relative;
+
+        span {
+            opacity: 0;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            margin: -12px 0 0 -12px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+        &::before {
+            border: 3px solid currentColor;
+            opacity: 0.25;
+        }
+        &::after {
+            border: 3px solid transparent;
+            border-left-color: currentColor;
+            transform: translateZ(0);
+            animation: mini-loader 1.1s infinite linear;
+        }
+    }
+}
+
+@keyframes mini-loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.button.button-small {
+    padding: 3px 16px;
+
+    ::ng-deep svg {
+        margin-left: 4px;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+////////////////////
+// COLOR VARIANTS //
+////////////////////
+.button.button-primary:not(.disabled) {
+    background: $primary;
+    color: #fff;
+    border-color: $primary;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):hover {
+        background: transparent;
+        color: $primary;
+        border-color: $primary;
+    }
+}
+
+.button.button-primary-light:not(.disabled) {
+    background: $primary-light;
+    color: $primary-dark;
+    border-color: $primary-light;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):hover {
+        background: $primary-dark;
+        color: #fff;
+        border-color: $primary-dark;
+    }
+}
+
+.button.button-primary-dark:not(.disabled) {
+    background: $primary-dark;
+    color: #fff;
+    border-color: $primary-dark;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):hover {
+        background: #fff;
+        color: $primary-dark;
+        border-color: $primary-dark;
+    }
+}
+
+.button.button-white:not(.disabled) {
+    background: #fff;
+    color: $primary-dark;
+    border-color: $primary-dark;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):hover {
+        background: $primary-dark;
+        color: #fff;
+        border-color: $primary-dark;
+    }
+}
+
+.button.button-transparent:not(.disabled) {
+    background: transparent;
+    color: $primary-dark;
+    border-color: $primary-dark;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):hover {
+        background: $primary-dark;
+        color: #fff;
+        border-color: $primary-dark;
+    }
+}
+
+/////////////////
+// ICON BUTTON //
+/////////////////
+.button.button-blank {
+    border: none;
+    border-radius: 0;
+    padding: 12px;
+    background: none;
+    color: currentColor;
+
+    &.button-small {
+        padding: 4px;
+    }
+    ::ng-deep svg {
+        margin-left: 0;
+    }
+
+    &:not(:disabled):focus-visible {
+        box-shadow: 0 0 0 1px currentColor;
+    }
+}

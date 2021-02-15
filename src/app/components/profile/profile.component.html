@@ -1,0 +1,14 @@
+<div class="profile-image">
+    <img src="{{ user.avatar_url }}" alt="{{ user.login }}" />
+</div>
+
+<div class="profile-info">
+    <app-title overrideStyle="h4">{{ user.name }}</app-title>
+
+    <dl>
+        <dt>Username:</dt>
+        <dd>{{ user.login }}</dd>
+        <dt>On GitHub since:</dt>
+        <dd>{{ user.created_at | date: 'MMMM d, yyyy' }}</dd>
+    </dl>
+</div>

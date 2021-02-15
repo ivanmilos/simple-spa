@@ -1,0 +1,48 @@
+@import '~src/scss/base';
+
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid $grey-E0;
+
+    &:first-of-type {
+        border-top: 1px solid $grey-E0;
+    }
+
+    > * {
+        margin-right: 24px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+.item-image {
+    width: 46px;
+    height: 46px;
+
+    img {
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+.item-info {
+    flex: 1;
+
+    a {
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom-color: currentColor;
+        }
+    }
+}
+.item-cta {
+    @include mq-max($sm) {
+        display: none;
+    }
+}

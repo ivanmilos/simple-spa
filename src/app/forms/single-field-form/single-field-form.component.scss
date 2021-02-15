@@ -1,0 +1,67 @@
+@import 'src/scss/base';
+
+.form-section {
+    background-color: $primary-light;
+    color: $primary-dark;
+    text-align: center;
+
+    &__form,
+    &__hint {
+        max-width: 570px;
+        margin: 0 auto;
+    }
+    &__form {
+        position: relative;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 4px;
+        border-radius: 28px;
+        border: 1px solid $grey-BD;
+        transition: $app-transition;
+
+        &:hover,
+        &:focus-within {
+            border-color: $primary-dark;
+        }
+
+        &--error {
+            border-color: $red;
+        }
+    }
+
+    &__form-input {
+        padding: 0 4px 0 10px;
+        border: none;
+        font-size: 16px;
+        color: $primary-dark;
+        flex: 1;
+        border-radius: $app-border-radius;
+
+        @include mq-min($xxs) {
+            padding: 0 10px 0 25px;
+        }
+
+        &::placeholder {
+            color: $grey-82;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__form-hint {
+        position: absolute;
+        top: 100%;
+        color: $red;
+        display: flex;
+        align-items: center;
+        padding-top: 4px;
+        left: 0;
+
+        ::ng-deep svg {
+            margin-right: 5px;
+        }
+    }
+}

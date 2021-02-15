@@ -1,0 +1,24 @@
+<ng-container [ngSwitch]="elementType">
+    <h1 *ngSwitchCase="'h1'" class="title {{ cssClasses }}">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h1>
+    <h2 *ngSwitchCase="'h2'" class="title {{ cssClasses }}">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h2>
+    <h3 *ngSwitchCase="'h3'" class="title {{ cssClasses }}">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h3>
+    <h4 *ngSwitchCase="'h4'" class="title {{ cssClasses }}">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h4>
+    <h5 *ngSwitchCase="'h5'" class="title {{ cssClasses }}">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h5>
+    <h6 *ngSwitchCase="'h6'" class="title {{ cssClasses }}">
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h6>
+</ng-container>
+
+<ng-template #contentTpl>
+    <ng-content></ng-content>
+</ng-template>

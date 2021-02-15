@@ -1,0 +1,33 @@
+<div class="search-wrapper" [ngClass]="{ 'search-wrapper-expanded': isExpanded }">
+    <form
+        class="search-form"
+        [formGroup]="theForm"
+        (ngSubmit)="onSubmit()"
+        #form="ngForm"
+    >
+        <input
+            formControlName="searchInput"
+            type="text"
+            placeholder="Search GitHub Users"
+            #inputFieldRef
+            tabindex="-1"
+        />
+        <app-button
+            colorType="blank"
+            isSubmitButton="true"
+            [isDisabled]="!isExpanded"
+        >
+            <app-icon-search></app-icon-search>
+        </app-button>
+    </form>
+
+    <app-button
+        class="search-expand-button"
+        colorType="primaryLight"
+        borderDisplayStyle="blendDark"
+        (click)="onExpandButtonClick()"
+        [isDisabled]="isExpanded"
+    >
+        <app-icon-search></app-icon-search>
+    </app-button>
+</div>

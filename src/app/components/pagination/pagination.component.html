@@ -1,0 +1,13 @@
+<div *ngIf="pager.length > 1" class="pagination">
+    <ng-container *ngFor="let pageIndex of pager">
+        <span *ngIf="pageIndex === '...' else pageBtn" class="pagination-ellipsis">...</span>
+        <ng-template #pageBtn>
+            <a
+                [class.current-page]="currentPage === pageIndex"
+                (click)="onPageButtonClick(pageIndex)" 
+            >
+                {{ pageIndex }}
+            </a>
+        </ng-template>
+    </ng-container>
+</div>

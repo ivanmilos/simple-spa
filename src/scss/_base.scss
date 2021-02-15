@@ -1,0 +1,161 @@
+///////////////
+// VARIABLES //
+///////////////
+$font-stack: system-ui, sans-serif;
+
+// COLORS
+$primary: #0ba1e2;
+$primary-dark: #162c68;
+$primary-light: #d4edfc;
+
+$red: #eb5757;
+$green: #6fcf97;
+
+$grey-82: #828282;
+$grey-BD: #bdbdbd;
+$grey-E0: #e0e0e0;
+$grey-EA: #eaeaea;
+$grey-F8: #f8f8f8;
+$tinted-grey: #c3c4c5;
+
+// BREAKPOINTS
+$xxs: 375;
+$xs: 480;
+$sm: 544;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 1440;
+$xxxl: 1680;
+
+$nav-breakpoint: $lg;
+
+// CONTENT CONTAINER PADDINGS AND WIDTH
+$app-container-max-width: 1354px;
+$app-container-padding-base: 16px;
+$app-container-padding-xs: 32px;
+$app-container-padding-md: 39px;
+$app-container-padding-lg: 47px;
+$app-container-padding-xl: 92px;
+
+// TRANSITIONS
+$app-transition: 0.15s ease;
+
+// BORDER-RADIUS
+$app-border-radius: 24px;
+
+// GRID-GAP
+$app-grid-gap-base: 24px;
+$app-grid-gap: 48px;
+
+
+////////////////////////
+// MEDIA QUERY MIXINS //
+////////////////////////
+@mixin mq-min($min) {
+    @media screen and (min-width: ($min/16) + em) {
+        @content;
+    }
+}
+
+@mixin mq-max($max) {
+    @media screen and (max-width: (($max - 1)/16) + em) {
+        @content;
+    }
+}
+
+@mixin mq-min-max($min, $max) {
+    @media screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) {
+        @content;
+    }
+}
+
+@mixin mq-retina {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi),
+        only screen and (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin mq-min-retina($min) {
+    @media only screen and (min-width: ($min/16) + em) and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-width: ($min/16) + em) and (min-device-pixel-ratio: 2),
+        only screen and (min-width: ($min/16) + em) and (min-resolution: 192dpi),
+        only screen and (min-width: ($min/16) + em) and (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin mq-max-retina($max) {
+    @media only screen and (max-width: (($max - 1)/16) + em) and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (max-width: (($max - 1)/16) + em) and (min-device-pixel-ratio: 2),
+        only screen and (max-width: (($max - 1)/16) + em) and (min-resolution: 192dpi),
+        only screen and (max-width: (($max - 1)/16) + em) and (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin mq-min-max-retina($min, $max) {
+    @media only screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) and (min-device-pixel-ratio: 2),
+        only screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) and (min-resolution: 192dpi),
+        only screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) and (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin mq-landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin mq-min-landscape($min) {
+    @media screen and (min-width: ($min/16) + em) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin mq-max-landscape($max) {
+    @media screen and (max-width: (($max - 1)/16) + em) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin mq-min-max-landscape($min, $max) {
+    @media screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin mq-portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin mq-min-portrait($min) {
+    @media screen and (min-width: ($min/16) + em) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin mq-max-portrait($max) {
+    @media screen and (max-width: (($max - 1)/16) + em) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin mq-min-max-portrait($min, $max) {
+    @media screen and (min-width: ($min/16) + em) and (max-width: (($max - 1)/16) + em) and (orientation: portrait) {
+        @content;
+    }
+}
+
+// mq in use:
+// @include mq-max(980) {}
+// @include mq-min(980) {}
+// @include mq-min(1100) {}
+// @include mq-min(1440) {}

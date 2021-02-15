@@ -1,0 +1,30 @@
+<div class="form-section app-section">
+    <div class="app-container">
+        <app-title elementType="{{ titleElementType }}" overrideStyle="h4">
+            {{ title }}
+        </app-title>
+        <form
+            class="form-section__form"
+            [ngClass]="{'form-section__form--error': isFormInvalid()}"
+            [formGroup]="theForm"
+            (ngSubmit)="onSubmit()"
+            #form="ngForm"
+        >
+            <input
+                class="form-section__form-input"
+                formControlName="inputControl"
+                type="text"
+                placeholder="{{ placeholder }}"
+                (focus)="resetUntouchedState()"
+                (input)="resetUntouchedState()"
+            >
+            <app-button
+                colorType="primary"
+                isSubmitButton="true"
+                [isLoading]="inProgress"
+            >
+                {{ buttonLabel }}
+            </app-button>
+        </form>
+    </div>
+</div>

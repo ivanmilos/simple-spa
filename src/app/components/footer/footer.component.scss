@@ -1,0 +1,14 @@
+@import 'src/scss/base';
+
+:host {
+    display: block;
+    background-color: $primary-dark;
+    color: #fff;
+    padding: 16px 0;
+    font-size: 13px;
+    color: rgba(#fff, 0.7);
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+}

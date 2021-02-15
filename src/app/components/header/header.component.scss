@@ -1,0 +1,60 @@
+@import '~src/scss/base';
+
+$header-height-xs: 56px;
+$header-height-xl: 90px;
+$header-height-xl-sticky: 70px;
+
+.header-placeholder,
+.header {
+    height: $header-height-xs;
+
+    @include mq-min($nav-breakpoint) {
+        height: $header-height-xl;
+    }
+}
+.header {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 -1px 0 $grey-E0;
+
+    &.header-is-sticky {
+        @include mq-min($nav-breakpoint) {
+            // Not using css custom properties because transitions won't work.
+            // If changing the sticky height value, make sure to change
+            // stickyHeaderPxHeight property in .ts to match it.
+            height: $header-height-xl-sticky;
+        }
+    }
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: $header-height-xl;
+
+    .header-is-sticky & {
+        height: $header-height-xl-sticky;
+    }
+    img {
+        height: 43px;
+    }
+
+    &:focus-visible {
+        outline: none;
+        background-color: $primary-light;
+    }
+}

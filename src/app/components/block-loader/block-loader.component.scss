@@ -1,0 +1,72 @@
+@import '~src/scss/base';
+
+:host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.loader-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba($grey-F8, 0.75);
+    }
+}
+
+.loader {
+    position: relative;
+    width: 96px;
+    height: 96px;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin: -48px 0 0 -48px;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+    }
+    &::before {
+        border: 10px solid $primary-dark;
+        opacity: 0.25;
+    }
+    &::after {
+        border: 10px solid transparent;
+        border-left-color: $primary-dark;
+        transform: translateZ(0);
+        animation: loader 1.1s infinite linear;
+    }
+}
+.loader.loader--small {
+    width: 48px;
+    height: 48px;
+
+    &::before,
+    &::after {
+        margin: -24px 0 0 -24px;
+        width: 48px;
+        height: 48px;
+    }
+    &::before {
+        border-width: 6px;
+    }
+    &::after {
+        border-width: 6px;
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

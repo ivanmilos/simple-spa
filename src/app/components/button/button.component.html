@@ -1,0 +1,39 @@
+<ng-container *ngIf="route !== null || externalUrl !== null else buttonTpl">
+    <a
+        *ngIf="route !== null"
+        class="button {{ cssClasses }}"
+        [routerLink]="[route]"
+        [queryParams]="queryParams"
+        [attr.title]="title ? title : null"
+    >
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </a>
+    <a
+        *ngIf="externalUrl !== null && route === null"
+        class="button {{ cssClasses }}"
+        href="{{ externalUrl }}"
+        target="_blank"
+        [attr.title]="title ? title : null"
+    >
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </a>
+</ng-container>
+
+<ng-template #buttonTpl>
+    <button
+        class="button {{ cssClasses }}"
+        type="{{ isSubmitButton ? 'submit' : 'button' }}"
+        [attr.title]="title ? title : null"
+        [disabled]="isDisabled"
+        [class.disabled]="isDisabled && !isLoading"
+        [tabindex]="isDisabled ? '-1' : null"
+    >
+        <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </button>
+</ng-template>
+
+<ng-template #contentTpl>
+    <span class="button-inner" [class.mini-loader]="isLoading">
+        <span><ng-content></ng-content></span>
+    </span>
+</ng-template>

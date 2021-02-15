@@ -1,0 +1,20 @@
+<app-single-field-form
+    title="Search GitHub Users"
+    titleElementType="h1"
+    placeholder="Search by name, username, bio..."
+    buttonLabel="Search"
+    [inputControl]="inputControl"
+    [inProgress]="isLoadingResults$ | async"
+    (formSubmit)="onFormSubmit($event)"
+></app-single-field-form>
+
+<div *ngIf="results$ | async as results" class="app-section app-container">
+    <app-title elementType="h2" overrideStyle="h5" align="center">
+        {{ results.items?.length ? 'Top 10 search results' : 'No Results Found' }}
+    </app-title>
+    <app-user-list
+        *ngIf="results.items?.length"
+        [users]="results.items"
+        [isLoading]="isLoadingResults$ | async"
+    ></app-user-list>
+</div>

@@ -1,0 +1,13 @@
+<div class="item-image">
+    <a [routerLink]="profileRoute">
+        <img src="{{ user.avatar_url }}" alt="{{ user.login }}" />
+    </a>
+</div>
+<div class="item-info">
+    <a [routerLink]="profileRoute">{{ user.login }}</a>
+</div>
+<div class="item-cta">
+    <app-button [route]="profileRoute" size="small">
+        View Profile
+    </app-button>
+</div>

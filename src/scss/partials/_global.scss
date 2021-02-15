@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    background: $primary;
+    color: #fff;
+    text-shadow: none;
+}
+::selection {
+    background: $primary;
+    color: #fff;
+    text-shadow: none;
+}
+
+html,
+body {
+    font-family: $font-stack;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    color: $primary-dark;
+    height: 100%;
+}
+
+svg,
+img {
+    vertical-align: top;
+}
+img {
+    max-width: 100%;
+}
+
+a {
+    color: currentColor;
+    transition: all $app-transition;
+}
+
+p {
+    margin: 0 0 1em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+:root {
+    --app-container-padding: #{$app-container-padding-base};
+
+    @include mq-min($xs) {
+        --app-container-padding: #{$app-container-padding-xs};
+    }
+    @include mq-min($md) {
+        --app-container-padding: #{$app-container-padding-md};
+    }
+    @include mq-min($lg) {
+        --app-container-padding: #{$app-container-padding-lg};
+    }
+    @include mq-min($xl) {
+        --app-container-padding: #{$app-container-padding-xl};
+    }
+}
+.app-container {
+    width: 100%;
+    max-width: $app-container-max-width;
+    padding-left: var(--app-container-padding);
+    padding-right: var(--app-container-padding);
+    margin: 0 auto;
+}
+.app-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    @include mq-min($sm) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    @include mq-min($lg) {
+        padding-top: 96px;
+        padding-bottom: 96px;
+    }
+}
+.app-grid {
+    display: grid;
+    gap: $app-grid-gap;
+
+    @include mq-min($md) {
+        grid-template-columns: 1fr 2fr;
+    }
+}
